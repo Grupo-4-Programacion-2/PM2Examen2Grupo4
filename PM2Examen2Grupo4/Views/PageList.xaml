@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PM2Examen2Grupo4.Views.PageList"
+              xmlns:ByteArrayToImage="clr-namespace:PM2Examen2Grupo4.ByteArrayImage"
+             Title="Lista de Registros">
+
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ByteArrayToImage:ByteArrayToImage x:Key="ByteArrayToImage" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+    <StackLayout>
+        <ListView x:Name="_list" Margin="30,15,0,0" SelectionMode="Single" ItemSelected="_list_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>  
+                            <StackLayout Orientation="Vertical" Grid.Column="1">
+                                <Label Text="{Binding descripcionAudio}" TextColor="Black" FontSize="16"/>
+                            </StackLayout>
+                            <Image Source="{Binding imageSignature, Converter={StaticResource ByteArrayToImage}}" Grid.Column="0" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
