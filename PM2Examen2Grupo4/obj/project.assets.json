@@ -34943,24 +34943,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Carlos Raul Cabrera\\.nuget\\packages\\": {},
+    "C:\\Users\\an_so\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Practices\\PM2Examen2Grupo4\\PM2Examen2Grupo4.csproj",
+      "projectUniqueName": "C:\\Users\\an_so\\source\\PM2Examen2Grupo4\\PM2Examen2Grupo4\\PM2Examen2Grupo4.csproj",
       "projectName": "PM2Examen2Grupo4",
-      "projectPath": "C:\\Practices\\PM2Examen2Grupo4\\PM2Examen2Grupo4.csproj",
-      "packagesPath": "C:\\Users\\Carlos Raul Cabrera\\.nuget\\packages\\",
-      "outputPath": "C:\\Practices\\PM2Examen2Grupo4\\obj\\",
+      "projectPath": "C:\\Users\\an_so\\source\\PM2Examen2Grupo4\\PM2Examen2Grupo4\\PM2Examen2Grupo4.csproj",
+      "packagesPath": "C:\\Users\\an_so\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\an_so\\source\\PM2Examen2Grupo4\\PM2Examen2Grupo4\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Carlos Raul Cabrera\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\an_so\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

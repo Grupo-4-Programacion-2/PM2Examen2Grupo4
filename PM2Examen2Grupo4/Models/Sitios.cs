@@ -9,16 +9,16 @@ namespace PM2Examen2Grupo4.Models
 {
     public class Sitios
     {
-        public int Id { get; set; }
-        public string descripcionAudio { get; set; }
+        public int id { get; set; }
+        public string descripcion { get; set; }
 
-        public Double lat { get; set; }
+        public Double latitud { get; set; }
 
-        public Double lgn { get; set; }
+        public Double longitud { get; set; }
 
-        public string audio { get; set; }
+        public string firmaDigital { get; set; }
 
-        public byte[] imageSignature { get; set; }       
+        public string audioFile { get; set; }
 
     }
 }

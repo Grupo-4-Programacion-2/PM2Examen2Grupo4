@@ -2,12 +2,14 @@
 using Plugin.Maui.Audio;
 using PM2Examen2Grupo4.Models;
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace PM2Examen2Grupo4
 {
     public partial class MainPage : ContentPage
     {
         Sitios sitios;
+        Contactos contactos;
 
         private readonly IAudioRecorder _audioRecorder;
         private bool isRecording = false;
@@ -23,24 +25,39 @@ namespace PM2Examen2Grupo4
 
         private async void btnGuardar_Clicked(object sender, EventArgs e)
         {
-            byte[] imagenBytes = await getSignatureToImage();
+            //byte[] imagenBytes = await getSignatureToImage();
 
             sitios = new Sitios
             {
-                descripcionAudio = _des.Text,
-                lat = Convert.ToDouble(_lat.Text),
-                lgn = Convert.ToDouble(_lgn.Text),
-                audio = null,
-                imageSignature = null
+                descripcion = _des.Text,
+                latitud = Convert.ToDouble(_lat.Text),
+                longitud = Convert.ToDouble(_lgn.Text),
+                audioFile = null,
+                firmaDigital = null
             };
 
-            Console.WriteLine(sitios.lat);
+            /*contactos = new Contactos
+            {
+                nombre = _des.Text,
+                telefono = "94517293",
+                latitud = _lat.Text,
+                longitud = _lgn.Text,
+                imagen = null
+            };*/
+            Console.WriteLine(sitios.descripcion);
+            Console.WriteLine(sitios.longitud);
+            Console.WriteLine(sitios.latitud);
+            Models.Msg msg = await Controllers.SitiosController.CreateEmple(sitios);
+
+            /*
+             *Console.WriteLine(sitios.lat);
             Console.WriteLine(sitios.lgn);
             Console.WriteLine(sitios.descripcionAudio);
             Console.WriteLine(sitios.audio);
             Console.WriteLine(sitios.imageSignature);
+            */
 
-            Models.Msg msg = await Controllers.SitiosController.CreateEmple(sitios);
+            //Models.Msg msg = await Controllers.SitiosController.CreateEmple(sitios);
 
             if (msg != null)
             {
