@@ -49,7 +49,7 @@ public partial class PageList : ContentPage
                     break;
 
                 case "Actualizar Informacion":
-                    await Navigation.PushAsync(new Views.PageUpdate()); //Se pueden mandar los parametros de actualizacion mediante el constructor
+                    await Navigation.PushAsync(new Views.PageUpdate(selectedItem.latitud, selectedItem.longitud, selectedItem.descripcion, selectedItem.audioFile, selectedItem.id)); //Se pueden mandar los parametros de actualizacion mediante el constructor
                     break;
 
                 case "Reproducir Audio":

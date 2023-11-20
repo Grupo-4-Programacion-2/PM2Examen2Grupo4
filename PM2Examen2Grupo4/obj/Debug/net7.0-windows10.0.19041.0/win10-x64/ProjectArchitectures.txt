@@ -1,1 +1,1 @@
-C:\Users\USUARIO\Documents\GitHub\PM2Examen2Grupo4\PM2Examen2Grupo4\PM2Examen2Grupo4.csproj;x64
+C:\Practices\PM2Examen2Grupo4\PM2Examen2Grupo4.csproj;x64
