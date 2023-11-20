@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Maui.Views;
+﻿using Android.Text;
+using CommunityToolkit.Maui.Views;
 using Plugin.Maui.Audio;
 using PM2Examen2Grupo4.Models;
 using System;
@@ -13,6 +14,7 @@ namespace PM2Examen2Grupo4
 
         private readonly IAudioRecorder _audioRecorder;
         private bool isRecording = false;
+        private bool isPaused = false;
         private MediaElement mediaElement;
 
         public string pathaudio, filename;
@@ -25,15 +27,15 @@ namespace PM2Examen2Grupo4
 
         private async void btnGuardar_Clicked(object sender, EventArgs e)
         {
-            //byte[] imagenBytes = await getSignatureToImage();
+            byte[] imagenBytes = await getSignatureToImage();
 
             sitios = new Sitios
             {
                 descripcion = _des.Text,
                 latitud = Convert.ToDouble(_lat.Text),
                 longitud = Convert.ToDouble(_lgn.Text),
-                audioFile = null,
-                firmaDigital = null
+                audioFile = pathaudio,
+                firmaDigital = imagenBytes
             };
 
             /*contactos = new Contactos
@@ -81,10 +83,25 @@ namespace PM2Examen2Grupo4
                 var permiss2 = await Permissions.RequestAsync<Permissions.StorageRead>();
                 var permiss3 = await Permissions.RequestAsync<Permissions.StorageWrite>();
 
-                if (permiss1 != PermissionStatus.Granted || permiss2 != PermissionStatus.Granted || permiss3 != PermissionStatus.Granted)
+                //if (permiss1 != PermissionStatus.Granted || permiss2 != PermissionStatus.Granted || permiss3 != PermissionStatus.Granted)
+                //{
+                //    return;
+                //}
+
+                if (permiss1 != PermissionStatus.Granted)
                 {
                     return;
                 }
+
+                //if ( permiss2 != PermissionStatus.Granted)
+                //{
+                //    return;
+                //}
+
+                //if (permiss3 != PermissionStatus.Granted)
+                //{
+                //    return;
+                //}
 
                 if (string.IsNullOrEmpty(_des.Text))
                 {
@@ -142,11 +159,47 @@ namespace PM2Examen2Grupo4
         }
 
 
-        private void detener_Clicked(object sender, EventArgs e)
+        private async void detener_Clicked(object sender, EventArgs e)
         {
-            if (mediaElement != null)
+            //if (mediaElement != null)
+            //{
+            //    mediaElement.Pause();
+            //}
+
+            if (isRecording)
             {
-                mediaElement.Pause();
+                var recordedAudio = await _audioRecorder.StopAsync();
+
+                if (recordedAudio != null)
+                {
+                    try
+                    {
+                        filename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"{DateTime.Now:ddMMyyyymmss}_VoiceLocation.wav");
+
+                        using (var fileStorage = new FileStream(filename, FileMode.Create, FileAccess.Write))
+                        {
+                            recordedAudio.GetAudioStream().CopyTo(fileStorage);
+                        }
+
+                        pathaudio = filename;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error: {ex.Message}");
+                        await DisplayAlert("Error", "Ocurrió un error al procesar la grabación.", "Ok");
+                    }
+                }
+                else
+                {
+                    await DisplayAlert("Error", "La grabación de audio ha fallado.", "Ok");
+                }
+
+                isRecording = false;
+                Console.WriteLine("Deteniendo grabación y guardando el audio...");
+            }
+            else
+            {
+                // Realizar acciones adicionales o mostrar mensajes si no se está grabando
             }
         }
 

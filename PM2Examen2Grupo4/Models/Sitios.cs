@@ -16,7 +16,7 @@ namespace PM2Examen2Grupo4.Models
 
         public Double longitud { get; set; }
 
-        public string firmaDigital { get; set; }
+        public byte[] firmaDigital { get; set; }
 
         public string audioFile { get; set; }
 
