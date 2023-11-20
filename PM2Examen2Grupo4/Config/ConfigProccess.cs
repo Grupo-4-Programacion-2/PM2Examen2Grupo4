@@ -16,6 +16,7 @@ namespace PM2Examen2Grupo4.Config
         public static string ApiCreate  =  "http://" + ipaddress + restapi + postRoute;
         public static string ApiGet  =  "http://" + ipaddress + restapi + "get.php";
         public static string ApiDelete  =  "http://" + ipaddress + restapi + "delete.php?id=";
+        public static string ApiUpdate = "http://" + ipaddress + restapi + "update.php";
 
 
     }

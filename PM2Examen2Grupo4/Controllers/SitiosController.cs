@@ -106,6 +106,40 @@ namespace PM2Examen2Grupo4.Controllers
             return msg;
         }
 
+        public async static Task<Models.Msg> UpdateEmple(Models.Sitios sitios)
+        {
+            var msg = new Models.Msg();
+
+            string jsonObject = JsonConvert.SerializeObject(sitios);
+            Console.WriteLine(jsonObject);
+
+            System.Net.Http.StringContent content = new StringContent(jsonObject, Encoding.UTF8, "application/json");
+
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage responseMessage = null;
+
+                responseMessage = await client.PutAsync($"{Config.ConfigProccess.ApiUpdate}?id={sitios.id}", content);
+                Console.WriteLine(Config.ConfigProccess.ApiUpdate);
+
+                if (responseMessage != null)
+                {
+                    if (responseMessage.IsSuccessStatusCode)
+                    {
+                        var result = responseMessage.Content.ReadAsStringAsync().Result;
+                        msg.message = "Actualizado Correctamente";
+                        // msg = JsonConvert.DeserializeObject<Models.Msg>(result);
+                    }
+                    else
+                    {
+                        msg.message = $"Error al actualizar: {responseMessage.ReasonPhrase}";
+                    }
+                }
+            }
+
+            return msg;
+        }
+
     }
 
 }
