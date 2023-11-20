@@ -14,12 +14,12 @@
                 WidthRequest="300"
                 HeightRequest="170"/>
 
-        <Entry x:Name="_lat" Placeholder="Latitude" Keyboard="Numeric" Margin="0,40,0,10"/>
-        <Entry x:Name="_lgn" Placeholder="Longitude" Keyboard="Numeric" Margin="0,0,0,10"/>
+        <Entry x:Name="_lat" Placeholder="Latitude" Keyboard="Numeric" Margin="0,40,0,10" IsReadOnly="True"/>
+        <Entry x:Name="_lgn" Placeholder="Longitude" Keyboard="Numeric" Margin="0,0,0,10" IsReadOnly="True"/>
 
         <Label Text="Escribe y graba tu ubicacion" HorizontalOptions="Center" FontSize="Medium" Margin="0,10,0,0"/>
 
-        <Entry x:Name="_des" Keyboard="Text" Placeholder="Description" Margin="0,0,0,10"/>
+        <Entry x:Name="_des" Keyboard="Text" Placeholder="Descripción" Margin="0,0,0,10"/>
 
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
             <Button Text="Grabar" 
