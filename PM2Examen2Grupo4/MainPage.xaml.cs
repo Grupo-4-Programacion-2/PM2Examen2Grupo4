@@ -10,7 +10,6 @@ namespace PM2Examen2Grupo4
     public partial class MainPage : ContentPage
     {
         Sitios sitios;
-        Contactos contactos;
 
         private readonly IAudioRecorder _audioRecorder;
         private bool isRecording = false;
@@ -61,6 +60,7 @@ namespace PM2Examen2Grupo4
                 }
                 catch (Exception ex)
                 {
+                    Console.WriteLine(ex.ToString());   
                     // Manejar excepciones, por ejemplo, permisos denegados
                     await DisplayAlert($"Aviso", "Error al obtener la ubicación.", "OK");
                 }

@@ -646,7 +646,7 @@
     <AppxPackagedFile Include="C:\Users\Carlos Raul Cabrera\.nuget\packages\microsoft.graphics.win2d\1.0.5.1\lib\net5.0-windows10.0.17763.0\Microsoft.Graphics.Canvas.Interop.dll">
       <PackagePath>Microsoft.Graphics.Canvas.Interop.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Carlos Raul Cabrera\.nuget\packages\microsoft.maui.controls.maps\8.0.3\lib\netstandard2.1\Microsoft.Maui.Controls.Maps.dll">
+    <AppxPackagedFile Include="C:\Users\Carlos Raul Cabrera\.nuget\packages\microsoft.maui.controls.maps\7.0.58\lib\net7.0-windows10.0.19041\Microsoft.Maui.Controls.Maps.dll">
       <PackagePath>Microsoft.Maui.Controls.Maps.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Carlos Raul Cabrera\.nuget\packages\microsoft.maui.graphics\7.0.92\lib\net7.0-windows10.0.19041\Microsoft.Maui.Graphics.dll">
@@ -655,7 +655,7 @@
     <AppxPackagedFile Include="C:\Users\Carlos Raul Cabrera\.nuget\packages\microsoft.maui.graphics.win2d.winui.desktop\7.0.92\lib\net7.0-windows10.0.19041\Microsoft.Maui.Graphics.Win2D.WinUI.Desktop.dll">
       <PackagePath>Microsoft.Maui.Graphics.Win2D.WinUI.Desktop.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Carlos Raul Cabrera\.nuget\packages\microsoft.maui.maps\8.0.3\lib\netstandard2.1\Microsoft.Maui.Maps.dll">
+    <AppxPackagedFile Include="C:\Users\Carlos Raul Cabrera\.nuget\packages\microsoft.maui.maps\7.0.58\lib\net7.0-windows10.0.19041\Microsoft.Maui.Maps.dll">
       <PackagePath>Microsoft.Maui.Maps.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Carlos Raul Cabrera\.nuget\packages\microsoft.windowsappsdk\1.2.221209.1\lib\net6.0-windows10.0.18362.0\Microsoft.InteractiveExperiences.Projection.dll">

@@ -68,6 +68,7 @@ namespace PM2Examen2Grupo4.Controllers
             }
             catch (Exception ex)
             {
+                Console.Write(ex.Message); 
                 Models.Msg msg = new Models.Msg();
                 msg.message = "Error no se proceso la transaccion";
                 return null;

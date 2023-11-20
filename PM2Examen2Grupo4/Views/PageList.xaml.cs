@@ -36,7 +36,7 @@ public partial class PageList : ContentPage
             switch (action)
             {
                 case "Ir Mapa":
-                    await Navigation.PushAsync(new Views.PageMap()); ///Se pueden mandar los parametros mediante el constructor de clase y almacenarlo en variables globales.
+                    await Navigation.PushAsync(new Views.PageMap(selectedItem.latitud, selectedItem.longitud, selectedItem.descripcion)); //Se pueden mandar los parametros mediante el constructor de clase y almacenarlo en variables globales.
                     break;
 
                 case "Eliminar":

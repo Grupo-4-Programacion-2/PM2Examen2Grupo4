@@ -3,21 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:mct="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
              x:Class="PM2Examen2Grupo4.MainPage"
-             Title="Registrarse">
+             Title="Registrarse" BackgroundColor="Black">
 
     <StackLayout VerticalOptions="Start" Padding="10">
 
-        <Label Text="Firma Digital" FontSize="Large" HorizontalOptions="Center" Margin="0,10,0,30" FontAttributes="Bold"/>
+        <Label Text="Firma Digital" TextColor="White" FontSize="Large" HorizontalOptions="Center" Margin="0,10,0,30" FontAttributes="Bold"/>
         <mct:DrawingView
                 x:Name="drawingView"
                 BackgroundColor="LightGray"
                 WidthRequest="300"
                 HeightRequest="170"/>
 
-        <Entry x:Name="_lat" Placeholder="Latitude" Keyboard="Numeric" Margin="0,40,0,10" IsReadOnly="True"/>
-        <Entry x:Name="_lgn" Placeholder="Longitude" Keyboard="Numeric" Margin="0,0,0,10" IsReadOnly="True"/>
+        <Entry x:Name="_lat" TextColor="White" Placeholder="Latitude" Keyboard="Numeric" Margin="0,40,0,10" IsReadOnly="True"/>
+        <Entry x:Name="_lgn" TextColor="White" Placeholder="Longitude" Keyboard="Numeric" Margin="0,0,0,10" IsReadOnly="True"/>
 
-        <Label Text="Escribe y graba tu ubicacion" HorizontalOptions="Center" FontSize="Medium" Margin="0,10,0,0"/>
+        <Label Text="Escribe y graba tu ubicacion" TextColor="White" HorizontalOptions="Center" FontSize="Medium" Margin="0,10,0,0"/>
 
         <Entry x:Name="_des" Keyboard="Text" Placeholder="Descripción" Margin="0,0,0,10"/>
 
