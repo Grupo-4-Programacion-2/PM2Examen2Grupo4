@@ -12,14 +12,15 @@ namespace PM2Examen2Grupo4.Controllers
     public static class SitiosController
     {
 
-        public async static Task<Models.Msg> CreateEmple(Models.Sitios sitios){
+        public async static Task<Models.Msg> CreateEmple(Models.Sitios sitios)
+        {
             var msg = new Models.Msg();
 
             String jsonObject = JsonConvert.SerializeObject(sitios);
             Console.WriteLine(jsonObject);
 
             System.Net.Http.StringContent content = new StringContent(jsonObject, Encoding.UTF8, "application/json");
-            
+
 
             using (HttpClient client = new HttpClient())
             {
@@ -34,7 +35,70 @@ namespace PM2Examen2Grupo4.Controllers
                     {
                         var result = responseMessage.Content.ReadAsStringAsync().Result;
                         msg.message = "Creado Correctamente";
-                        //msg = JsonConvert.DeserializeObject<Models.Msg>(result);
+                        msg = JsonConvert.DeserializeObject<Models.Msg>(result);
+                    }
+                }
+            }
+
+            return msg;
+        }
+
+        public async static Task<List<Models.Sitios>> GetSitios()
+        {
+            List<Models.Sitios> emplelist = new List<Models.Sitios>();
+
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    HttpResponseMessage responseMessage = null;
+                    responseMessage = await client.GetAsync(Config.ConfigProccess.ApiGet);
+
+                    if (responseMessage != null)
+                    {
+                        if (responseMessage.IsSuccessStatusCode)
+                        {
+                            var result = responseMessage.Content.ReadAsStringAsync().Result;
+                            emplelist = JsonConvert.DeserializeObject<List<Models.Sitios>>(result);
+                        }
+                    }
+                }
+
+                return emplelist;
+            }
+            catch (Exception ex)
+            {
+                Models.Msg msg = new Models.Msg();
+                msg.message = "Error no se proceso la transaccion";
+                return null;
+            }
+        }
+
+        public async static Task<Models.Msg> DeleteEmple(int empleId)
+        {
+            var msg = new Models.Msg();
+
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage responseMessage = null;
+
+                string deleteEndpoint = $"{Config.ConfigProccess.ApiDelete}" + $"{empleId}";
+
+                Console.WriteLine(deleteEndpoint);
+
+                responseMessage = await client.DeleteAsync(deleteEndpoint);
+                Console.WriteLine(deleteEndpoint);
+
+                if (responseMessage != null)
+                {
+                    if (responseMessage.IsSuccessStatusCode)
+                    {
+                        var result = responseMessage.Content.ReadAsStringAsync().Result;
+                        msg.message = "Eliminado Correctamente";
+                    }
+                    else
+                    {
+                        msg.message = $"Error al eliminar: {responseMessage.ReasonPhrase}";
                     }
                 }
             }
@@ -43,4 +107,5 @@ namespace PM2Examen2Grupo4.Controllers
         }
 
     }
+
 }

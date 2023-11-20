@@ -14,14 +14,24 @@ public partial class PageList : ContentPage
         InitializeComponent();
     }
 
-    private async void _list_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+    protected override async void OnAppearing()
     {
-        var selectedItem = e.SelectedItem as Sitios; //Para cuando se seleccione un elemento de la lista.
+        base.OnAppearing();
+
+        List<Models.Sitios> listSitios = new List<Models.Sitios>();
+        listSitios = await Controllers.SitiosController.GetSitios();
+        _list.ItemsSource = listSitios;
+
+    }
+
+    private async void _list_ItemSelected(object sender, SelectionChangedEventArgs e)
+    {
+        var selectedItem = e.CurrentSelection[0] as Sitios; //Para cuando se seleccione un elemento de la lista.
 
 
         if (selectedItem != null)
         {
-            string action = await DisplayActionSheet("¿Que Quieres Hacer?", "Actualizar Informacion", "Ir Mapa", "Eliminar");
+            string action = await DisplayActionSheet("¿Que Quieres Hacer?", "CANCELAR", "", "Actualizar Informacion", "Reproducir Audio", "Ir Mapa", "Eliminar");
 
             switch (action)
             {
@@ -30,11 +40,20 @@ public partial class PageList : ContentPage
                     break;
 
                 case "Eliminar":
-                    await DisplayAlert("INFORMACION", "ELIMINAR INACTIVO POR AHORA", "CANCEL");
+                    Models.Msg msg = await Controllers.SitiosController.DeleteEmple(selectedItem.id);
+                    if (msg != null)
+                    {
+                        await DisplayAlert("Aviso", msg.message.ToString(), "CONTINUAR");
+                    }
+                    OnAppearing(); 
                     break;
 
                 case "Actualizar Informacion":
-                    await Navigation.PushAsync(new Views.PageMap()); //Se pueden mandar los parametros de actualizacion mediante el constructor
+                    await Navigation.PushAsync(new Views.PageUpdate()); //Se pueden mandar los parametros de actualizacion mediante el constructor
+                    break;
+
+                case "Reproducir Audio":
+                    await DisplayAlert("INFORMACION", "REPRODUCIR AUDIO ESTA INACTIVO POR AHORA", "CANCEL");
                     break;
             }
         }

@@ -13,21 +13,49 @@
     </ContentPage.Resources>
 
 
-    <StackLayout>
-        <ListView x:Name="_list" Margin="30,15,0,0" SelectionMode="Single" ItemSelected="_list_ItemSelected">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Grid>  
-                            <StackLayout Orientation="Vertical" Grid.Column="1">
-                                <Label Text="{Binding descripcionAudio}" TextColor="Black" FontSize="16"/>
+    <ScrollView>
+        <VerticalStackLayout>
+            <CollectionView x:Name="_list" SelectionMode="Single" SelectionChanged="_list_ItemSelected">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Frame HeightRequest="80"
+                                   WidthRequest="80"
+                                   CornerRadius="40"
+                                   HorizontalOptions="Center"
+                                   IsClippedToBounds="True"
+                                   Padding="0"
+                                   BorderColor="Gray"
+                                   Margin="0,0,0,0">
+
+                                <Image Grid.Column="0" 
+                                       x:Name="imagen"
+                                       Source="{Binding firmaDigital, Converter={StaticResource ByteArrayToImage}}"
+                                       Aspect="AspectFill"  
+                                       HeightRequest="70"
+                                       WidthRequest="70" />
+
+                            </Frame>
+
+                            <StackLayout Grid.Column="1" Margin="20,0,0,0" VerticalOptions="Center">
+                                <Label Text="{Binding descripcion}" FontSize="Medium" />
                             </StackLayout>
-                            <Image Source="{Binding imageSignature, Converter={StaticResource ByteArrayToImage}}" Grid.Column="0" />
+
                         </Grid>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+
+    </ScrollView>
 
 </ContentPage>

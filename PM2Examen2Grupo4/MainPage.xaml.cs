@@ -1,5 +1,4 @@
-﻿using Android.Text;
-using CommunityToolkit.Maui.Views;
+﻿using CommunityToolkit.Maui.Views;
 using Plugin.Maui.Audio;
 using PM2Examen2Grupo4.Models;
 using System;
@@ -38,28 +37,11 @@ namespace PM2Examen2Grupo4
                 firmaDigital = imagenBytes
             };
 
-            /*contactos = new Contactos
-            {
-                nombre = _des.Text,
-                telefono = "94517293",
-                latitud = _lat.Text,
-                longitud = _lgn.Text,
-                imagen = null
-            };*/
             Console.WriteLine(sitios.descripcion);
             Console.WriteLine(sitios.longitud);
             Console.WriteLine(sitios.latitud);
             Models.Msg msg = await Controllers.SitiosController.CreateEmple(sitios);
 
-            /*
-             *Console.WriteLine(sitios.lat);
-            Console.WriteLine(sitios.lgn);
-            Console.WriteLine(sitios.descripcionAudio);
-            Console.WriteLine(sitios.audio);
-            Console.WriteLine(sitios.imageSignature);
-            */
-
-            //Models.Msg msg = await Controllers.SitiosController.CreateEmple(sitios);
 
             if (msg != null)
             {
@@ -83,25 +65,10 @@ namespace PM2Examen2Grupo4
                 var permiss2 = await Permissions.RequestAsync<Permissions.StorageRead>();
                 var permiss3 = await Permissions.RequestAsync<Permissions.StorageWrite>();
 
-                //if (permiss1 != PermissionStatus.Granted || permiss2 != PermissionStatus.Granted || permiss3 != PermissionStatus.Granted)
-                //{
-                //    return;
-                //}
-
                 if (permiss1 != PermissionStatus.Granted)
                 {
                     return;
                 }
-
-                //if ( permiss2 != PermissionStatus.Granted)
-                //{
-                //    return;
-                //}
-
-                //if (permiss3 != PermissionStatus.Granted)
-                //{
-                //    return;
-                //}
 
                 if (string.IsNullOrEmpty(_des.Text))
                 {

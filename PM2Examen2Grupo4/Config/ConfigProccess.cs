@@ -14,8 +14,9 @@ namespace PM2Examen2Grupo4.Config
         public static string postRoute = "create.php";
 
         public static string ApiCreate  =  "http://" + ipaddress + restapi + postRoute;
-   //     public static string EndpointPost = "http://192.168.88.227/apirest/create.php";
-        //public static string EndpointGet = "http://192.168.0.4/ApiEmple/public/empleados/show";
+        public static string ApiGet  =  "http://" + ipaddress + restapi + "get.php";
+        public static string ApiDelete  =  "http://" + ipaddress + restapi + "delete.php?id=";
+
 
     }
 }
