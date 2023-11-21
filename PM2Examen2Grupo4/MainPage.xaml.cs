@@ -175,6 +175,7 @@ namespace PM2Examen2Grupo4
             Console.WriteLine(sitios.descripcion);
             Console.WriteLine(sitios.longitud);
             Console.WriteLine(sitios.latitud);
+            Console.WriteLine(sitios.audioFile);
             Models.Msg msg = await Controllers.SitiosController.CreateEmple(sitios);
 
 

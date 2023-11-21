@@ -35,7 +35,7 @@ namespace PM2Examen2Grupo4.Controllers
                     {
                         var result = responseMessage.Content.ReadAsStringAsync().Result;
                         msg.message = "Creado Correctamente";
-                        msg = JsonConvert.DeserializeObject<Models.Msg>(result);
+                        //msg = JsonConvert.DeserializeObject<Models.Msg>(result);
                     }
                 }
             }

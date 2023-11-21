@@ -1,6 +1,8 @@
 using CommunityToolkit.Maui.Views;
+using Plugin.Maui.Audio;
 using PM2Examen2Grupo4.Models;
 using System.Collections.ObjectModel;
+using Microsoft.Maui.Controls;
 
 namespace PM2Examen2Grupo4.Views;
 
@@ -53,6 +55,7 @@ public partial class PageList : ContentPage
                     break;
 
                 case "Reproducir Audio":
+                    StartAudio(selectedItem.audioFile);
                     await DisplayAlert("INFORMACION", "REPRODUCIR AUDIO ESTA INACTIVO POR AHORA", "CANCEL");
                     break;
             }
@@ -61,18 +64,11 @@ public partial class PageList : ContentPage
 
     private void StartAudio(string filePath)
     {
-        if (mediaElement != null)
-        {
-            mediaElement.Stop();
-            (Content as StackLayout)?.Children.Remove(mediaElement);
-        }
 
         mediaElement = new MediaElement
         {
-            Source = filePath,
-            ShouldAutoPlay = true
+            Source = filePath
         };
-
-        (Content as StackLayout)?.Children.Add(mediaElement);
+        mediaElement.Play();
     }
 }
