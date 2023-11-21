@@ -33,7 +33,7 @@ public partial class PageList : ContentPage
 
         if (selectedItem != null)
         {
-            string action = await DisplayActionSheet("¿Que Quieres Hacer?", "CANCELAR", "", "Actualizar Informacion", "Reproducir Audio", "Ir Mapa", "Eliminar");
+            string action = await DisplayActionSheet("Â¿Que Quieres Hacer?", "CANCELAR", "", "Actualizar Informacion", "Reproducir Audio", "Ir Mapa", "Eliminar");
 
             switch (action)
             {
@@ -56,7 +56,6 @@ public partial class PageList : ContentPage
 
                 case "Reproducir Audio":
                     StartAudio(selectedItem.audioFile);
-                    await DisplayAlert("INFORMACION", "REPRODUCIR AUDIO ESTA INACTIVO POR AHORA", "CANCEL");
                     break;
             }
         }
