@@ -64,11 +64,15 @@ public partial class PageList : ContentPage
 
     private void StartAudio(string filePath)
     {
-
         mediaElement = new MediaElement
         {
             Source = filePath
         };
         mediaElement.Play();
+    }
+
+    private async void ToolbarItem_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new MainPage());
     }
 }

@@ -182,6 +182,7 @@ namespace PM2Examen2Grupo4
             if (msg != null)
             {
                 await DisplayAlert("Aviso", msg.message.ToString(), "OK");
+                clear();
             }
         }
 
@@ -306,6 +307,7 @@ namespace PM2Examen2Grupo4
         private void clear()
         {
             drawingView.Clear();
+            _des.Text = "";
         }
 
     }

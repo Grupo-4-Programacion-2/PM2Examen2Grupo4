@@ -6,11 +6,16 @@
              Title="Lista de Registros">
 
 
+    
     <ContentPage.Resources>
         <ResourceDictionary>
             <ByteArrayToImage:ByteArrayToImage x:Key="ByteArrayToImage" />
         </ResourceDictionary>
     </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Agregar" Clicked="ToolbarItem_Clicked" />
+    </ContentPage.ToolbarItems>
 
 
     <ScrollView>

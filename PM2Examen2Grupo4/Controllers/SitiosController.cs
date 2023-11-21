@@ -11,7 +11,7 @@ namespace PM2Examen2Grupo4.Controllers
 {
     public static class SitiosController
     {
-
+        
         public async static Task<Models.Msg> CreateEmple(Models.Sitios sitios)
         {
             var msg = new Models.Msg();
@@ -140,7 +140,6 @@ namespace PM2Examen2Grupo4.Controllers
 
             return msg;
         }
-
     }
 
 }
